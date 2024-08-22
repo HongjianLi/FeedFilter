@@ -11,7 +11,7 @@ fastify.get('/mydrivers', async (request, reply) => {
         if (line.startsWith('\t\t\t<category><![CDATA[')) {
             category = line.substring(22, lines[22].length - 14);
         } else if (line === '\t\t</item>') {
-            if (![ '传统汽车', '电动汽车', '新能源汽车', '服装鞋帽' ].includes(category)) {
+            if (![ '传统汽车', '电动汽车', '新能源汽车', '汽车厂商', '服装鞋帽' ].includes(category)) {
                 items.push(...itemLines)
             }
             itemLines.length = 0
