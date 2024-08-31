@@ -10,9 +10,9 @@ fastify.get('/mydrivers', async (request, reply) => {
         const line = lines[i]
         itemLines.push(line)
         if (line.startsWith('\t\t\t<category><![CDATA[')) {
-            category = line.substring(22, lines[22].length - 14);
+            category = line.substring(22, line.length - 14);
         } else if (line === '\t\t</item>') {
-            if (![ '传统汽车', '电动汽车', '新能源汽车', '汽车厂商', '服装鞋帽' ].includes(category)) {
+            if (![ '传统汽车', '电动汽车', '新能源汽车', '无人驾驶汽车', '汽车厂商', '服装鞋帽' ].includes(category)) {
                 items.push(...itemLines)
             }
             itemLines.length = 0
@@ -20,4 +20,4 @@ fastify.get('/mydrivers', async (request, reply) => {
     }
     return [...lines.slice(0, 17), ...items, ...lines.slice(-2)].join('\n')
 })
-await fastify.listen({ port: 12081 })
+await fastify.listen({ port: 12081, host: '::' })
