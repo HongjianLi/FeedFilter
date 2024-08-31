@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import Fastify from 'fastify'
 const fastify = Fastify()
 fastify.get('/mydrivers', async (request, reply) => {
