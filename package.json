@@ -1,7 +1,7 @@
 {
 	"name": "FeedFilter",
 	"version": "1.0.0",
-	"description": "Server for fetching external RSS feeds and filtering out unwanted categories",
+	"description": "Fetch external RSS feeds and filter out unwanted categories",
 	"author": "Hongjian Li",
 	"type": "module",
 	"repository": {
@@ -10,7 +10,10 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"fastify": "4.28.1"
+		"fastify": "^4.28.1"
 	},
-	"main": "server.js"
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	}
 }
