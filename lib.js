@@ -2,6 +2,7 @@ export default {
     fetchFilter: async () => {
         const response = await fetch('http://rss.mydrivers.com/rss.aspx?Tid=1')
         const lines = (await response.text()).split('\r\n')
+        if (lines.length < 18) return null;
         console.assert(lines[17] === '\t\t<item>')
         const items = []
         for (let itemLines = [], category, i = 17; i < lines.length - 2; ++i) {
