@@ -1,6 +1,11 @@
 export default {
     fetchFilter: async () => {
-        const response = await fetch('http://rss.mydrivers.com/rss.aspx?Tid=1')
+        const response = await fetch('http://rss.mydrivers.com/rss.aspx?Tid=1', {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0',
+                'Accept-Language': 'en,en-US;q=0.9,zh-CN;q=0.8,zh-TW;q=0.7,zh;q=0.6',
+            },
+        })
         const lines = (await response.text()).split('\r\n')
         if (lines.length < 18) return null;
         console.assert(lines[17] === '\t\t<item>')
