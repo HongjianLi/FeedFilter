@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 let titleArr = [
     '9元',
     '19元',
